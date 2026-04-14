@@ -1,0 +1,28 @@
+# Virtual Environment
+.venv/
+.env/
+
+# PyCharm
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Ignore folders
+data/processed/*
+outputs/figures/*
+outputs/reports/*
+
+# Keep .gitkeep
+!data/processed/.gitkeep
+!outputs/figures/.gitkeep
+!outputs/reports/.gitkeep
