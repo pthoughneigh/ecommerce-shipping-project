@@ -1,0 +1,9 @@
+2026-04-15 01:19:46 | src.data.loader | INFO     | Successfully loaded 10999 rows from e_commerce_shipping_data.csv
+2026-04-15 01:19:46 | src.data.cleaning | INFO     | Starting cleaning. Initial shape: (10999, 12)
+2026-04-15 01:19:46 | src.data.cleaning | INFO     | Renamed columns...
+2026-04-15 01:19:46 | src.data.cleaning | INFO     | Columns after renaming: ['id', 'warehouse_block', 'mode_of_shipment', 'customer_care_calls', 'customer_rating', 'cost_of_the_product', 'prior_purchases', 'product_importance', 'gender', 'discount_offered', 'weight_in_gms', 'reached_on_time']
+2026-04-15 01:19:46 | src.data.cleaning | INFO     | Removing unnecessary columns...
+2026-04-15 01:19:46 | src.data.cleaning | INFO     | Dropped 'id' column...
+2026-04-15 01:19:46 | src.data.cleaning | INFO     | No duplicates found.
+2026-04-15 01:19:46 | src.data.cleaning | INFO     | Final columns: ['warehouse_block', 'mode_of_shipment', 'customer_care_calls', 'customer_rating', 'cost_of_the_product', 'prior_purchases', 'product_importance', 'gender', 'discount_offered', 'weight_in_gms', 'reached_on_time']
+2026-04-15 01:19:46 | src.data.cleaning | INFO     | Cleaning completed. Final shape: (10999, 11)
