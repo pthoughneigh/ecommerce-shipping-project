@@ -15,6 +15,7 @@ from src.features.preprocessing import build_design_matrix
 from src.features.splitting import split_data
 from src.evaluation.metrics import evaluate_model
 from src.evaluation.residuals import run_residual_analysis
+from src.visualization.plots import run_plots
 
 if __name__ == "__main__":
     df_raw = load_raw_data()
@@ -35,3 +36,15 @@ if __name__ == "__main__":
     evaluate_model(y_test.values, test_preds, "Test")
 
     run_residual_analysis(y_train, train_preds)
+
+    feature_names = [col for col in df_processed.columns if col != TARGET_COLUMN]
+    run_plots(
+        df_clean,
+        TARGET_COLUMN,
+        NUMERIC_COLUMNS,
+        CATEGORICAL_COLUMNS,
+        y_train,
+        train_preds,
+        feature_names,
+        model.coefficients
+    )
