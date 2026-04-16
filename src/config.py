@@ -27,3 +27,8 @@ NUMERIC_COLUMNS = ['prior_purchases', 'discount_offered', 'weight_in_gms', 'cust
 ORDINAL_COLUMNS = ['product_importance']
 NOMINAL_COLUMNS = ['warehouse_block', 'mode_of_shipment', 'gender']
 
+# Columns excluded from training:
+# - 'customer_rating': Pearson r = 0.009, essentially no linear relationship with cost.
+# - 'reached_on_time': Delivery outcome happens after the product cost is set.
+COLUMNS_TO_DROP = ['reached_on_time', 'customer_rating']
+
