@@ -1,9 +1,7 @@
 from src.logger import get_logger
 import numpy as np
 
-
 logger = get_logger(__name__)
-
 
 class LinearRegression:
     """

@@ -13,6 +13,8 @@ from src.data.cleaning import clean_data
 from src.analysis.eda import run_eda
 from src.features.preprocessing import build_design_matrix
 from src.features.splitting import split_data
+from src.evaluation.metrics import evaluate_model
+from src.evaluation.residuals import run_residual_analysis
 
 if __name__ == "__main__":
     df_raw = load_raw_data()
@@ -23,10 +25,13 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = split_data(
         df_processed, NUMERIC_COLUMNS, TARGET_COLUMN
     )
-
     model = LinearRegression()
     model.fit(X_train.values, y_train.values)
 
-    predictions = model.predict(X_test.values)
-    print(predictions[:10])
-    print(f"First 10 actual: {y_test.values[:10]}")
+    train_preds = model.predict(X_train.values)
+    test_preds = model.predict(X_test.values)
+
+    evaluate_model(y_train.values, train_preds, "Train")
+    evaluate_model(y_test.values, test_preds, "Test")
+
+    run_residual_analysis(y_train, train_preds)
