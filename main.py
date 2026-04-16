@@ -1,4 +1,5 @@
 import pandas as pd
+from src.models.linear_regression import LinearRegression
 from src.config import (
     NUMERIC_COLUMNS,
     CATEGORICAL_COLUMNS,
@@ -16,18 +17,16 @@ from src.features.splitting import split_data
 if __name__ == "__main__":
     df_raw = load_raw_data()
     df_clean = clean_data(df_raw)
-    df_design = build_design_matrix(df_clean, COLUMNS_TO_DROP, ORDINAL_COLUMNS, NOMINAL_COLUMNS)
-
-    pd.set_option('display.max_columns', None)
-    pd.set_option('display.max_rows', None)
-    # run_eda(df_clean, NUMERIC_COLUMNS, CATEGORICAL_COLUMNS, TARGET_COLUMN)
-
+    df_processed = build_design_matrix(
+        df_clean, COLUMNS_TO_DROP, ORDINAL_COLUMNS, NOMINAL_COLUMNS
+    )
     X_train, X_test, y_train, y_test = split_data(
-        df_design,
-        NUMERIC_COLUMNS,
-        TARGET_COLUMN
+        df_processed, NUMERIC_COLUMNS, TARGET_COLUMN
     )
 
-    print(X_train.head())
-    print(X_train.shape)
-    print(y_train.head())
+    model = LinearRegression()
+    model.fit(X_train.values, y_train.values)
+
+    predictions = model.predict(X_test.values)
+    print(predictions[:10])
+    print(f"First 10 actual: {y_test.values[:10]}")
