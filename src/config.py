@@ -18,3 +18,12 @@ RAW_DATA_FILE: Path = DATA_RAW_DIR / "e_commerce_shipping_data.csv"
 
 # ── Log level
 LOG_LEVEL = "DEBUG"
+
+# Columns
+TARGET_COLUMN = 'cost_of_the_product'
+CATEGORICAL_COLUMNS = ['warehouse_block', 'mode_of_shipment', 'gender', 'reached_on_time','product_importance']
+NUMERIC_COLUMNS = ['prior_purchases', 'discount_offered', 'weight_in_gms', 'customer_care_calls', 'customer_rating']
+
+ORDINAL_COLUMNS = ['product_importance']
+NOMINAL_COLUMNS = ['warehouse_block', 'mode_of_shipment', 'gender']
+

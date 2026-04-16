@@ -21,8 +21,10 @@ Thumbs.db
 data/processed/*
 outputs/figures/*
 outputs/reports/*
+outputs/logs/*
 
 # Keep .gitkeep
 !data/processed/.gitkeep
 !outputs/figures/.gitkeep
 !outputs/reports/.gitkeep
+!outputs/logs/.gitkeep

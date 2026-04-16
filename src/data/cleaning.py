@@ -3,7 +3,9 @@ from src.logger import get_logger
 
 logger = get_logger(__name__)
 
-def clean_data(df: pd.DataFrame) -> pd.DataFrame:
+def clean_data(
+        df: pd.DataFrame
+) -> pd.DataFrame:
     """Clean the raw DataFrame by standardizing column names, dropping unnecessary
     columns, and removing duplicate rows.
 

@@ -4,7 +4,8 @@ from src.logger import get_logger
 
 logger = get_logger(__name__)
 
-def load_raw_data() -> pd.DataFrame:
+def load_raw_data(
+) -> pd.DataFrame:
     """Load the raw dataset from the configured CSV path.
 
        Returns:
